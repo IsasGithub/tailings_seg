@@ -1,9 +1,9 @@
-#R version 4.2.2
+# built under R version 4.2.2
 
 ### Segmentation of mining tailings in brazil
-### some tailings are labelled as multiple polygons
+### some tailings are labelled as multiple polygons, i.e. predicted output should not always exactly match the goundtruth mask
 
-
+# libraries
 library(terra)
 library(keras)
 library(tensorflow)
@@ -18,13 +18,13 @@ library(mapview)
 library(magick)
 library(oceanmap)
 library(jpeg)
-library(dplyr)
-library(spatialEco)
 
-#set wd
+# set wd
 setwd("D:/DATEN ZWEI/Wue/SS_23/DeepLearning/Assignment/")
 
-# # convert img tif from GEE to jpeg
+## IMAGE CONVERSION
+# only necessary when using .tif files
+# convert img tif from GEE to jpeg
 # in.files <- list.files("./img_tif/","tif$")
 # for(i in 0:(length(in.files)-1)){
 #   tif <- terra::rast(paste0("./img_tif/", "img_", as.character(i), ".tif"))
@@ -34,8 +34,8 @@ setwd("D:/DATEN ZWEI/Wue/SS_23/DeepLearning/Assignment/")
 #   x[,,c(3,1)] <- x[,,c(1,3)]
 #   writeJPEG(x, target = paste0("./img/img_", as.character(i), ".jpeg"), quality = .7)
 # }
-# 
-# # convert mask tif from GEE to jpeg
+
+# convert mask tif from GEE to jpeg
 # in.files <- list.files("./mask_tif/","tif$")
 # for(i in 0:(length(in.files)-1)){
 #   tif <- raster(paste0("./mask_tif/", "mask_", as.character(i), ".tif"))
@@ -46,6 +46,7 @@ setwd("D:/DATEN ZWEI/Wue/SS_23/DeepLearning/Assignment/")
 # }
 
 
+## DATA PREPROCESSING
 # loading data
 data <- data.frame(
   img = list.files("./img/", full.names = T),
@@ -90,7 +91,7 @@ train_ds <- dataset_map(train_ds, function(x){
                                                 input_shape[2])))
 })
 
-## Augmentation
+###### augmentation
 # augmentation 1
 spectral_aug <- function(img){
   img <- tf$image$random_brightness(img, max_delta = .3)
@@ -131,7 +132,7 @@ aug <- dataset_map(aug, function(x)
 train_ds_aug <- dataset_concatenate(train_ds_aug, aug)
 
 
-###### nur vielleicht
+# optional
 # augmentation 3: flip left right AND up down, including random change of saturation, brightness and contrast
 aug <- dataset_map(train_ds, function(x)
   list_modify(x, img = spectral_aug(x$img))
@@ -150,8 +151,6 @@ aug <- dataset_map(aug, function(x)
 train_ds_aug <- dataset_concatenate(train_ds_aug, aug)
 
 ######
-
-
 
 
 # shuffeling
@@ -202,7 +201,7 @@ val_ds <- dataset_batch(val_ds, 10)
 val_ds <- dataset_map(val_ds, unname)
 
 
-## Network Design
+## NETWORK DESIGN
 l2 <- 0.01 # weight decay 
 input_tensor <- layer_input(shape = input_shape)
 
@@ -225,7 +224,6 @@ conc_tensor2 <- layer_conv_2d(
 )
 
 unet_tensor <- layer_max_pooling_2d(conc_tensor2)
-
 
 # cov block 2
 unet_tensor <- layer_conv_2d(
@@ -263,7 +261,6 @@ unet_tensor <- layer_conv_2d(
   activation = "relu",
   kernel_regularizer = regularizer_l2(l2)
 )
-
 
 # expanding path
 # upsampling block 1
@@ -317,7 +314,7 @@ unet_tensor <-  layer_conv_2d(
 unet_model <- keras_model(inputs = input_tensor, output = unet_tensor)
 
 
-## compile the model
+## COMPILE THE MODEL
 compile(
   unet_model,
   optimizer = optimizer_rmsprop(learning_rate = 1e-4),
@@ -333,15 +330,13 @@ run <- fit(
   validation_data = val_ds
 )
 
-
-# evlation: accuarcy and loss
+## EVALUATION
+# accuarcy and loss
 evaluate(unet_model, val_ds)
 
-#  tbc with extracting prediction maps
+## VISUALISATION
+# extract prediction maps
 pred_ds <- predict(unet_model, val_ds)
-
-
-# visualisation
 i = 13
 img_path <- as.character(testing(data)[[i,1]])
 mask_path <- as.character(testing(data)[[i,2]])
@@ -354,10 +349,7 @@ out <- magick::image_append(c(
   magick::image_append(mask, stack = TRUE),
   magick::image_append(img, stack = TRUE),
   magick::image_append(pred, stack = TRUE)
-)
-)
+))
 
 plot(out)
-
-
 
