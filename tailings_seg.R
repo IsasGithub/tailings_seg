@@ -19,6 +19,8 @@ library(magick)
 library(oceanmap)
 library(jpeg)
 
+tensorflow::install_tensorflow()
+
 # set wd
 setwd("D:/DATEN ZWEI/Wue/SS_23/DeepLearning/Assignment/")
 
