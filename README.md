@@ -28,6 +28,6 @@ We have similar accuracy measures as with the network implemented in R.
 
 | ![Figure_1](https://github.com/IsasGithub/tailings_seg/assets/116874799/00fbadb2-acac-43af-8b3a-ba31f2a05bfe) alt="scatterplot_sat" width="300"/> | ![Figure_2](https://github.com/IsasGithub/tailings_seg/assets/116874799/68ca701f-c512-4eb2-9a89-cee85e4a576a) alt="scatterplot_dr1" width="300"/> |
 | -- | --- |
-| Linear Relationship Sentinel | Linear Relationship Drone 1 |
+| Training & Validation **Loss** | Training & Validation **Accuracy** |
 
 ***Figure 3:** Linear relationship between NDVI and AGB values for Sentinel and drone images.* 
