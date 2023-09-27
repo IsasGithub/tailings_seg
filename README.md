@@ -45,3 +45,7 @@ We have similar accuracy measures as with the network implemented in R.
 
 ## Small Comparison of TensorFlow in R and Python
 We faced some difficulties in getting the TensorFlow plugin for R running. This was the initial reason for implementing the same network in Python as well. While we managed to get the R script running and aquired some pretty good results, the Python community provides more support and more functionalities of TensorFlow are available, e.g. decoding .tif-files. We tested a few different network architectures and parameter settings, however we were slighly limited to our available hardware and computational power. As future work, we could try running the network in a cluster setup to further improve parameter tuning. Additionally we could work on the amount and quality of the training data. Nonetheless, this project gives an idea on the feasability of image segmentation of mining tailings and we learnt a lot about dos and donts and having fun testing things in DL. 🐘
+
+
+Here you can find our presentation: 
+https://drive.google.com/drive/folders/1HcOK__E4kFswcFk2q9zvlIt8Bipt333H?usp=sharing
