@@ -9,6 +9,7 @@ Our training data consists of 114 sets of each a Sentinel-2 imagery of mining ta
 ## Network Architecture
 We implement a CNN with a simple U-net architechture using the Tenserflow API in R. Additionally we recreate the same network in Python to compare usability and reliaility. In total, the network has 10 convolutional layers, we half the image channels in each depth. We choose binary crossentropy as our loss function. Different learning rates and batch size parameters are tested.
 ![image](https://github.com/IsasGithub/tailings_seg/assets/116874799/ddcaa1cb-099e-4337-b815-670bb21d8cf7)
+
 ***Figure 1:** U-net architecture.* 
 
 ## Results
@@ -16,6 +17,7 @@ We implement a CNN with a simple U-net architechture using the Tenserflow API in
 This is an exemplary result of the implemented CNN in R, showing the labelled groundtruth mask on the left, the corresponding Sentinel-2 in the middle and the predicted image segmentation on the right:
 
 ![image](https://github.com/IsasGithub/tailings_seg/assets/116874799/61203401-1569-4567-b1f8-b65bc255aad7)
+
 ***Figure 2:** Exemplary result of predicted image segmentation (R).* 
 
 We manage a validation accuracy of approx. 0.9, and validation loss of approx. 0.05.
@@ -28,6 +30,7 @@ We manage a validation accuracy of approx. 0.9, and validation loss of approx. 0
 ### Tensorflow in Python
 This is an exemplary result of the implemented CNN in Python, showing the Sentinel-2 on the left, the corresponding groundtruth mask on the left in the middle and the predicted image segmentation on the right:
 ![image](https://github.com/IsasGithub/tailings_seg/assets/116874799/10aea9be-8358-4474-9374-80a2d06cb417)
+
 ***Figure 4:** Exemplary result of predicted image segmentation (Python).* 
 
 We have similar accuracy measures as with the network implemented in R.
