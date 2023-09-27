@@ -20,6 +20,7 @@ This is an exemplary result of the implemented CNN in R, showing the labelled gr
 
 ***Figure 2:** Exemplary result of predicted image segmentation (R).* 
 
+
 We manage a validation accuracy of approx. 0.9, and validation loss of approx. 0.05.
 | ![image](https://github.com/IsasGithub/tailings_seg/assets/116874799/44087c93-9035-4088-89ca-1c5baac0bd45) | ![image](https://github.com/IsasGithub/tailings_seg/assets/116874799/af773968-6810-435a-944f-dbf1d91ffa77)|
 | -- | --- |
@@ -32,6 +33,7 @@ This is an exemplary result of the implemented CNN in Python, showing the Sentin
 ![image](https://github.com/IsasGithub/tailings_seg/assets/116874799/10aea9be-8358-4474-9374-80a2d06cb417)
 
 ***Figure 4:** Exemplary result of predicted image segmentation (Python).* 
+
 
 We have similar accuracy measures as with the network implemented in R.
 | ![Figure_1](https://github.com/IsasGithub/tailings_seg/assets/116874799/00fbadb2-acac-43af-8b3a-ba31f2a05bfe) | ![Figure_2](https://github.com/IsasGithub/tailings_seg/assets/116874799/68ca701f-c512-4eb2-9a89-cee85e4a576a)|
