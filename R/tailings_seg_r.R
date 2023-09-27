@@ -20,6 +20,7 @@ library(oceanmap)
 library(jpeg)
 library(dplyr)
 library(spatialEco)
+#tensorflow::install_tensorflow()
 
 # please set the path to your wd
 setwd("D:/Isa/DeepLearning/Assignment/")
