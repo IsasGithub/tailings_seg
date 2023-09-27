@@ -9,7 +9,7 @@ Our training data consists of 114 sets of each a Sentinel-2 imagery of mining ta
 ## Network Architecture
 We implement a CNN with a simple U-net architechture using the Tenserflow API in R. Additionally we recreate the same network in Python to compare usability and reliaility. In total, the network has 10 convolutional layers, we half the image channels in each depth. We choose binary crossentropy as our loss function. Different learning rates and batch size parameters are tested.
 ![image](https://github.com/IsasGithub/tailings_seg/assets/116874799/ddcaa1cb-099e-4337-b815-670bb21d8cf7)
-***Figure 3:** Linear relationship between NDVI and AGB values for Sentinel and drone images.* 
+***Figure 1:** U-net architecture.* 
 
 ## Results
 ### Tensorflow in R
