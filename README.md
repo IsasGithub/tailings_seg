@@ -19,7 +19,10 @@ This is an exemplary result of the implemented CNN in R, showing the labelled gr
 ***Figure 3:** Linear relationship between NDVI and AGB values for Sentinel and drone images.* 
 
 We manage a validation accuracy of approx. 0.9, and validation loss of approx. 0.05.
-![image](https://github.com/IsasGithub/tailings_seg/assets/116874799/c289673f-b500-45d5-b983-58981775774c)
+| ![image](https://github.com/IsasGithub/tailings_seg/assets/116874799/44087c93-9035-4088-89ca-1c5baac0bd45) | ![image](https://github.com/IsasGithub/tailings_seg/assets/116874799/af773968-6810-435a-944f-dbf1d91ffa77)|
+| -- | --- |
+| Training & Validation **Loss** | Training & Validation **Accuracy** |
+
 ***Figure 3:** Linear relationship between NDVI and AGB values for Sentinel and drone images.* 
 
 ### Tensorflow in Python
