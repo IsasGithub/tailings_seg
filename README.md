@@ -32,4 +32,9 @@ We have similar accuracy measures as with the network implemented in R.
 | -- | --- |
 | Training & Validation **Loss** | Training & Validation **Accuracy** |
 
+![image](https://github.com/IsasGithub/tailings_seg/assets/116874799/44087c93-9035-4088-89ca-1c5baac0bd45)
+![image](https://github.com/IsasGithub/tailings_seg/assets/116874799/af773968-6810-435a-944f-dbf1d91ffa77)
+
+
+
 ***Figure 3:** Linear relationship between NDVI and AGB values for Sentinel and drone images.* 
